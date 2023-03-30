@@ -5,7 +5,7 @@ from .models import Task
 from django.views.generic.edit import CreateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from .forms import TaskForm
-
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -80,3 +80,10 @@ class RegisterPage(FormView):
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
+    
+    
+def mark_completed(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    task.complete = request.POST.get('complete', True)
+    task.save()
+    return redirect('tasks')

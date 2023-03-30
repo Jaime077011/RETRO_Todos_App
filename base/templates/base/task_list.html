@@ -33,6 +33,11 @@
                                         <p>{{task.description}}</p>
                                         <a class="nes-btn is-success mt-3 " href="#">Edit</a>
                                         <a class="nes-btn is-error mt-3 " href="{% url 'task-delete' task.id %}">Delete</a>
+                                        <form method="post" action="{% url 'mark_completed' task.id %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="complete" value="True">
+                                            <button type="submit" class="nes-btn is-primary mt-3 " >Completed</button>
+                                        </form>
                                     </div>
 
                                 </div>
