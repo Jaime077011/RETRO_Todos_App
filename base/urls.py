@@ -12,7 +12,7 @@ urlpatterns = [
     path('task/<int:pk>/', TaskDetail.as_view(), name='task'),
     path('task-create/', TaskCreate.as_view(), name='task-create'),
     path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete'),
-     path('task/<int:task_id>/mark_completed/', mark_completed, name='mark_completed')
+    path('task/<int:task_id>/mark_completed/', mark_completed, name='mark_completed')
 
 
 ]
