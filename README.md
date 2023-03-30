@@ -1,4 +1,4 @@
-# RETRO_Todos_App
+# RETRO Todos App
 <h3>This is a Retro-style Todo List application built using Django, HTML, CSS, and JavaScript.</h3>
 <h4>Features</h4>
 <ul>
