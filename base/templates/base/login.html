@@ -1,0 +1,56 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 my-5">
+
+            <div class="text-center mb-2">
+                <i class="nes-icon is-large star"></i>
+                <i class="nes-icon is-large star"></i>
+                <i class="nes-icon is-large star"></i>
+                <i class="nes-icon is-large star"></i>
+                <i class="nes-icon is-large star"></i>
+            </div>
+                <div class="nes-container with-title is-rounded">
+                    <p class="title">Login</p>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mt-5">
+                        <div class="nes-field is-inline">
+                            <label>{{form.username.label}}:</label>
+                            <input class="nes-input" {{form.username}}
+                        </div>
+                        
+                        <br>
+                        <div class="nes-field is-inline">
+                            <label class='my-2'>{{form.password.label}}:</label>
+                            <input class="nes-input"{{form.password}}
+                        </div>
+                        <br>
+                        <div class="text-center">
+                        <input class="nes-btn is-success" type="submit" value="Login">
+                        </div>
+                    </div>
+                    </form>
+                    <br>
+                    <div class='text-center mb-5'>
+                    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+                    </div>
+                </div>
+                <div class="mt-2">
+                <progress class="nes-progress is-pattern" value="100" max="100"></progress>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

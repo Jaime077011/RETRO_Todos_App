@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 my-5">
+            <a class="btn btn-dark btn-large my-2" href="{% url 'tasks' %}">Back</a>
+
+            <div class="card card-default">
+                
+                <div class="card-header">
+                    {{ task }}
+                </div>
+
+            <div class="card-body text-center">
+                {{ task.description }}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

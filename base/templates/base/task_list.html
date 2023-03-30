@@ -1,0 +1,96 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1 class='text-center my-5'>Todos Page</h1>
+
+
+
+                        {% for task in tasks %}
+
+
+                                {% if task.complete %}
+                                    
+                                    <div class='nes-container with-title is-rounded mb-4'>
+                                        <p class="title"><s>{{task}}</s></p>
+                                        <div class="text-center mt-4">
+    
+                                            <p><s>{{task.description}}</s></p>
+                                            <a class="nes-btn is-success mt-3 " href="#">Edit</a>
+                                            <a class="nes-btn is-error mt-3 " href="{% url 'task-delete' task.id %}">Delete</a>
+                                        </div>
+    
+                                    </div>
+                                {% else %}
+                                <div class='nes-container with-title is-rounded mb-4'>
+                                    <p class="title">{{task}}</p>
+                                    <div class="text-center mt-4">
+
+                                        <p>{{task.description}}</p>
+                                        <a class="nes-btn is-success mt-3 " href="#">Edit</a>
+                                        <a class="nes-btn is-error mt-3 " href="{% url 'task-delete' task.id %}">Delete</a>
+                                    </div>
+
+                                </div>
+                                {% endif %}
+                                {% comment %} <a class="nes-btn is-error float-end m-2 mt-0" href="{% url 'task-delete' task.id %}">Delete</a>
+                                <a class="nes-btn is-success float-end m-2 mt-0" href="#">Edit</a>
+                                <a class="nes-btn is-primary float-end m-2 mt-0" href="{% url 'task' task.id %}">view</a> {% endcomment %}
+                        {% empty %}
+                        <div>
+                            <h3>No new Todos are created.</h3>
+                            <h3>Create a <a href="{% url 'task-create' %}">New Todo</a> ! </h3>
+                        </div>
+                        {% endfor %}
+                        <div class="float-end">
+                            <a  class="nes-btn" href="{% url 'task-create' %}">Create Todo</a>
+                        </div>
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+
+        
+</div>
+
+{% endblock content %}
+
+
+
+
+
+{% comment %} {% extends 'base/main.html' %}
+{% block content %}
+<div  class="">
+    {% for task in tasks %}
+    <div class="" data-position="{{task.pk}}">
+        <div class="">
+            {% if task.complete %}
+            <div class=""></div>
+            <i><s>{{task}}</s></i> 
+            {% else %}
+            <div class=""></div>
+            <i>{{task}}</i> 
+            {% endif %}
+        </div>
+        <div class="">
+            <a class="btn btn-danger btn-sm float-end m-2" href="{% url 'task-delete' task.id %}">Delete</a>
+            <a class="btn btn-primary btn-sm float-end m-2" href="{% url 'task' task.id %}">view</a>
+
+        </div>
+    </div>
+    {% empty %}
+    <div>
+        <h3>No new tasks are created.</h3>
+        <h3>Create a <a href="{% url 'task-create' %}">New task</a> ! </h3>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %} {% endcomment %}

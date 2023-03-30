@@ -1,0 +1,47 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class='text-center my-5'>Create Todo</h1>
+
+            <a class="nes-btn my-4" href="{% url 'tasks' %}">Back</a>
+
+            <div class="nes-container with-title is-rounded my-10">
+                <p class="title">Create</p>
+
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div>
+                            {{form.as_p}}
+                        </div>
+                        <div class="text-center">
+                            <input class="nes-btn is-success" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-5">
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+{% comment %} <div class="header-bar">
+    <a href="{% url 'tasks' %}">Back</a>
+</div>
+
+
+<div class="card-body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Submit">
+    </form>
+</div> {% endcomment %}
